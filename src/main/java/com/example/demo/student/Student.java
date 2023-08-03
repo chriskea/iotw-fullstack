@@ -6,8 +6,8 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Student {
     private Long id;
     private String name;
