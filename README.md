@@ -5,6 +5,8 @@ How to run...
 2. Node v16.4.0
 3. Npm 8.7.0
 
+Tip: Use nvm to install and select specific versions of node https://asibin99.medium.com/how-to-use-node-version-manager-nvm-on-ubuntu-20-04-fa71c9929f51
+
 # Setup
 1. git clone git@github.com:chriskea/iotw-fullstack.git
 
