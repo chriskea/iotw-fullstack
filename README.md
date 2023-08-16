@@ -41,7 +41,7 @@ We should also create a Run configuration for the node app (in frontend)
 
 ## Issue 1
 ```
-Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/tokenize' is not defined by "exports" in /Users/ckearney/insightoftheweekprojects/iotw-fullstack/src/frontend/node_modules/postcss-safe-parser/node_modules/postcss/package.json
+Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/tokenize' is not defined by "exports" in package.json
 ```
 
 Fix:
