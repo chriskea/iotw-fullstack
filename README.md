@@ -7,11 +7,13 @@ How to run...
 
 # Setup
 
+## Backend
 1. git clone git@github.com:chriskea/iotw-fullstack.git
 2. Intellij > New > Project From Existing Sources > iotw-fullstack pom.xml
 
 When the project is imported it should automatically create a Run configuration for the Spring boot server. Our spring boot server should start and we should be able to hit http://localhost:8080/api/v1/students
 
+## Frontend
 We should also create a Run configuration for the node app (in frontend)
 
 1. cd iotw-fullstack/src/frontend
