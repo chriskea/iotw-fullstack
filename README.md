@@ -37,5 +37,24 @@ We should also create a Run configuration for the node app (in frontend)
 - Command: start
 - Node and NPM versions should automatically be selected (but if they are not select the correct versions)
 
+# Troubleshooting
+
+## Issue 1
+```
+Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/tokenize' is not defined by "exports" in /Users/ckearney/insightoftheweekprojects/iotw-fullstack/src/frontend/node_modules/postcss-safe-parser/node_modules/postcss/package.json
+```
+
+Fix:
+Potentially due to building with one node version and running with another. 
+
+## Issue 2
+```
+sh: react-scripts: command not found
+```
+
+Fix: npm install
+
+
+
 
 
