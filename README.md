@@ -7,7 +7,7 @@ How to run...
 
 Tip: Use nvm to install and select specific versions of node https://asibin99.medium.com/how-to-use-node-version-manager-nvm-on-ubuntu-20-04-fa71c9929f51
 
-Cheatsheet
+## Cheatsheet
 ```
 nvm ls // list installed versions
 nvm ls-remote // list installable version
