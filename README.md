@@ -6,10 +6,10 @@ How to run...
 3. Npm 8.7.0
 
 # Setup
+1. git clone git@github.com:chriskea/iotw-fullstack.git
 
 ## Backend
-1. git clone git@github.com:chriskea/iotw-fullstack.git
-2. Intellij > New > Project From Existing Sources > iotw-fullstack pom.xml
+1. Intellij > New > Project From Existing Sources > iotw-fullstack pom.xml
 
 When the project is imported it should automatically create a Run configuration for the Spring boot server. Our spring boot server should start and we should be able to hit http://localhost:8080/api/v1/students
 
