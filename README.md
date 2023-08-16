@@ -1,3 +1,5 @@
+How to run...
+
 # Pre-req
 1. Java 11 installed
 2. Node v16.4.0
