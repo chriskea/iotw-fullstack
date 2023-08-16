@@ -44,8 +44,7 @@ We should also create a Run configuration for the node app (in frontend)
 Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/tokenize' is not defined by "exports" in package.json
 ```
 
-Fix:
-Potentially due to building with one node version and running with another. 
+Fix: Something to do with having multiple versions of node/npm installed. Try restarting the terminal and running npm run build or npm start.
 
 ## Issue 2
 ```
