@@ -7,6 +7,16 @@ How to run...
 
 Tip: Use nvm to install and select specific versions of node https://asibin99.medium.com/how-to-use-node-version-manager-nvm-on-ubuntu-20-04-fa71c9929f51
 
+Cheatsheet
+```
+nvm ls // list installed versions
+nvm ls-remote // list installable version
+
+nvm install v16.4.0
+
+nvm use v16.4.0
+```
+
 # Setup
 1. git clone git@github.com:chriskea/iotw-fullstack.git
 
