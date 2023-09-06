@@ -48,6 +48,7 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 function App() {
     const [students, setStudents] = useState([]);
     const [collapsed, setCollapsed] = useState(false);
+    const [fetching, setFetching] = useState(true);
 
     const fetchStudents = () =>
         getAllStudents()
@@ -55,12 +56,30 @@ function App() {
             .then(data => {
                 console.log(data);
                 setStudents(data);
+                setFetching(false);
             })
 
     useEffect(() => {
         console.log("component is mounted");
         fetchStudents();
     }, []);
+
+    const renderStudents = () => {
+        if (fetching) {
+            return <Spin indicator={antIcon} />
+        }
+        if (students.length <=0) {
+            return <Empty/>;
+        }
+        return <Table
+            dataSource={students}
+            columns={columns}
+            bordered
+            title={() => 'Students'}
+            pagination={{ pageSize: 10 }}
+            scroll={{ y: 240 }}
+            rowKey={(student) => student.id}/>
+    }
 
 
     return <Layout style={{minHeight: '100vh'}}>
@@ -91,10 +110,7 @@ function App() {
         <Layout className="site-layout">
             <Header className="site-layout-background" style={{padding: 0}}/>
             <Content style={{margin: '0 16px'}}>
-                <Breadcrumb style={{margin: '16px 0'}}>
-                    <Breadcrumb.Item>User</Breadcrumb.Item>
-                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                </Breadcrumb>
+                {renderStudents()}
                 <div className="site-layout-background" style={{padding: 24, minHeight: 360}}>
                 </div>
             </Content>
