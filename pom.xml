@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.13</version>
-        <relativePath/>
-        <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
@@ -49,49 +48,100 @@
                     </excludes>
                 </configuration>
             </plugin>
-
-            <!-- build the frontend -->
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.14.0</version>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.3.2</version>
                 <configuration>
-                    <workingDirectory>src/frontend</workingDirectory>
+                    <from>
+                        <image>
+                            openjdk:11
+                        </image>
+                    </from>
+                    <container>
+                        <ports>
+                            <port>
+                                8080
+                            </port>
+                        </ports>
+                        <format>OCI</format>
+                    </container>
                 </configuration>
-
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                        <configuration>
-                            <nodeVersion>v16.4.0</nodeVersion>
-                            <npmVersion>8.7.0</npmVersion>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm run build</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run build</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>build-front-end</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <version>1.11.2</version>
+                        <configuration>
+                            <nodeVersion>v4.6.0</nodeVersion>
+                            <workingDirectory>src/frontend</workingDirectory>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <configuration>
+                                    <nodeVersion>v16.4.0</nodeVersion>
+                                    <npmVersion>8.7.0</npmVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm install</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm run build</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run build</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>
+                            maven-resources-plugin
+                        </artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-build-folder</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <resources>
+                                        <resource>
+                                            <directory>src/frontend/build</directory>
+                                        </resource>
+                                    </resources>
+                                    <outputDirectory>${basedir}/target/classes/static</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
