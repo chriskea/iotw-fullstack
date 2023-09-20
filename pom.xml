@@ -48,6 +48,8 @@
                     </excludes>
                 </configuration>
             </plugin>
+            
+            <!-- JIB used to create a container image -->     
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
@@ -79,12 +81,12 @@
             </activation>
             <build>
                 <plugins>
+                    <!-- Build frontend resources as part of a mvn install -->     
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
                         <version>1.11.2</version>
                         <configuration>
-                            <nodeVersion>v4.6.0</nodeVersion>
                             <workingDirectory>src/frontend</workingDirectory>
                         </configuration>
                         <executions>
@@ -118,6 +120,8 @@
                             </execution>
                         </executions>
                     </plugin>
+
+                    <!-- Copy frontend resources to the jar as part of a mvn install -->     
                     <plugin>
                         <artifactId>
                             maven-resources-plugin
