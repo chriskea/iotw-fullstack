@@ -37,6 +37,13 @@ We should also create a Run configuration for the node app (in frontend)
 - Command: start
 - Node and NPM versions should automatically be selected (but if they are not select the correct versions)
 
+## Running backend and frontend from Tomcat together
+Once the frontend is compiled and copied into the jar both apps are served from tomcat. We can start the application by running the compiled jar
+
+```
+java -jar demo-0.0.1-SNAPSHOT.jar
+```
+
 # Jib + Docker
 1. `mvn jib:dockerBuild -Djib.to.image=fullstack:v1`
 2. `docker run --name fullstack -p 3000:8080 fullstack:v1`
