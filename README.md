@@ -37,6 +37,16 @@ We should also create a Run configuration for the node app (in frontend)
 - Command: start
 - Node and NPM versions should automatically be selected (but if they are not select the correct versions)
 
+# Jib + Docker
+1. `mvn jib:dockerBuild -Djib.to.image=fullstack:v1`
+2. `docker run --name fullstack -p 3000:8080 fullstack:v1`
+3. stop and delete container
+4. Create dockerhub account
+5. Login on docker desktop or with `docker login` in terminal
+6. In intellij terminal `mvn jib:build -Djib.to.image={**dockerhub_user**}/spring-react-fullstack:v1`
+7. `docker pull {**dockerhub_user***}/spring-react-fullstack:v1`
+8. `docker run -p 3000:8080 {**dockerhub_user***}/spring-react-fullstack:v1`
+
 # Troubleshooting
 
 ## Issue 1
