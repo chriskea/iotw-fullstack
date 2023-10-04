@@ -50,9 +50,13 @@ java -jar demo-0.0.1-SNAPSHOT.jar
 3. stop and delete container
 4. Create dockerhub account
 5. Login on docker desktop or with `docker login` in terminal
-6. In intellij terminal `mvn jib:build -Djib.to.image={**dockerhub_user**}/spring-react-fullstack:v1`
-7. `docker pull {**dockerhub_user***}/spring-react-fullstack:v1`
-8. `docker run -p 3000:8080 {**dockerhub_user***}/spring-react-fullstack:v1`
+6. To build and run locally
+   1. In intellij terminal `mvn jib:build -Djib.to.image={**dockerhub_user**}/spring-react-fullstack:v1`
+   2. `docker pull {**dockerhub_user***}/spring-react-fullstack:v1`
+   2. `docker run -p 3000:8080 {**dockerhub_user***}/spring-react-fullstack:v1`
+9. To build and push image to dockerhub
+   1. `mvn clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=1
+      ` (tip: use cmd + enter after typing to run the command in intellij if you get an **invalid target release** error)
 
 # Troubleshooting
 
