@@ -58,6 +58,51 @@ java -jar demo-0.0.1-SNAPSHOT.jar
    1. `mvn clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=1
       ` (tip: use cmd + enter after typing to run the command in intellij if you get an **invalid target release** error)
 
+
+# AWS
+
+## Elastic beanstalk 
+
+Contains an Application and an environment
+
+### Application
+1. Elastic Beanstalk > Create Application
+ - Name (something sensible)
+
+### Environment
+All defaults unless specified
+
+1. Webserver enviromnent
+2. Platform Type: Managed platform
+3. Platform: Docker
+4. Docker running on 64bit Amazon Linux 2023
+5. Application code: Sample application (just while testing environment works)
+6. Single instance (free tier eligible)
+
+Service access:
+1. Service role
+- *This dropdown displays ALL IAM roles*
+- Choose 'Create and use new service role'
+
+2. EC2 instance profile
+- *This dropdown displays IAM roles that have AWSElasticBeanstalkWebTier policy*, to create a new one
+- IAM > Roles > Create Role
+- AWS Service type
+- EC2 service use case
+- Add Permissions (policies): AWSElasticBeanstalkMulticontainerDocker and AWSElasticBeanstalkWebTier
+
+3. Networking
+- VPC: vpc-0c37a...
+- Subnet: us-west-1c (0c0ee...)
+
+4. Traffic and scaling
+- Security groups: sg-0043..., sg-0064, sg-0cab...
+- Autoscaling group: leave as 1 for now
+
+5. Monitorting
+- Basic health reporting
+
+  
 # Troubleshooting
 
 ## Issue 1
