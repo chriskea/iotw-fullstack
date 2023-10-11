@@ -92,10 +92,12 @@ Service access:
 - Add Permissions (policies): AWSElasticBeanstalkMulticontainerDocker and AWSElasticBeanstalkWebTier
 
 3. Networking
+(or whatever relevant to your AWS account)
 - VPC: vpc-0c37a...
 - Subnet: us-west-1c (0c0ee...)
 
 4. Traffic and scaling
+(or whatever relevant to your AWS account)
 - Security groups: sg-0043..., sg-0064, sg-0cab...
 - Autoscaling group: leave as 1 for now
 
