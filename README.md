@@ -63,7 +63,7 @@ java -jar demo-0.0.1-SNAPSHOT.jar
 
 ## Elastic beanstalk 
 
-Contains an Application and an environment
+Contains an Application and an environment. *Note Elastic Beanstalk will create a public IP for your instance*
 
 ### Application
 1. Elastic Beanstalk > Create Application
@@ -100,7 +100,7 @@ Service access:
 - Autoscaling group: leave as 1 for now
 
 5. Monitorting
-- Basic health reporting
+- Enhanced
 
   
 # Troubleshooting
