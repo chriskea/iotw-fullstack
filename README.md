@@ -61,7 +61,7 @@ java -jar demo-0.0.1-SNAPSHOT.jar
 
 # AWS
 
-## Elastic beanstalk 
+## Elastic beanstalk
 
 Contains an Application and an environment. *Note Elastic Beanstalk will create a public IP for your instance*
 
@@ -104,7 +104,32 @@ Service access:
 5. Monitorting
 - Enhanced
 
-  
+# Robot Framework Automation
+We have decided to develope our automation suite in robot framework.
+
+Robot Framework is a generic open source automation framework. It can be used for test automation and robotic process automation (RPA).
+
+*It is required to have a running docker instance of the iotw app in order to run your tests.*
+
+*It is suggested to write your robot tests using robot framework as the intellij language server plugin seems to be a tad janky with environment variables but it can be done with intellij if desired.*
+
+## Setup
+1. Install Python
+```
+brew install python
+```
+2. Navigate to root directory of repo, create your python venv and source it
+```
+python3 -m venv iotw-fullstack-venv
+
+source ivm-robot-automation/iotw-fullstack-venv/bin/activate
+```
+3. Install dependancies
+```
+python3 -m pip install -r requirements.txt
+```
+4. Open your iotw-fullstack project in VScode and `cmd+shift+p` and enter "Python Interpreter" to select your python interpreter
+5. Install the Robot Framework Language Server plugin
 # Troubleshooting
 
 ## Issue 1

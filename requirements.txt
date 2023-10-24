@@ -1,0 +1,16 @@
+allure-robotframework==2.12.0
+boto3==1.28.60
+edn-format==0.7.5
+jsonschema==4.17.3
+robotframework==6.1
+robotframework-archivelibrary==0.4.1
+robotframework-browser==17.4.0
+robotframework-faker==5.0.0
+robotframework-pabot==2.16.0
+robotframework-stacktrace==0.4.1
+robotframework-jsonlibrary==0.5
+robotframework-dependencylibrary==3.0.1
+robotframework-notifications==1.2.0
+robotframework-requests==1.0a7
+pyjwt==2.5.0
+PyYAML==6.0.1

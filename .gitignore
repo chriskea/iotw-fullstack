@@ -42,6 +42,9 @@ build/
 # testing
 **/coverage
 
+#venv
+iotw-fullstack-venv/*
+
 # production
 **/build
 
