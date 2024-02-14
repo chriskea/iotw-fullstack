@@ -1,8 +1,7 @@
 import {Drawer, Input, Col, Select, Form, Row, Button, Spin} from 'antd';
-// import {addNewStudent} from "./client";
 import {LoadingOutlined} from "@ant-design/icons";
 import {useState} from 'react';
-// import {successNotification, errorNotification} from "./Notification";
+import {addNewStudent} from "./client";
 
 const {Option} = Select;
 
@@ -10,33 +9,21 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 export default function StudentDrawerForm({showDrawer, setShowDrawer, fetchStudents}) {
     const onClose = () => setShowDrawer(false);
-    const [submitting, setSubmitting] = useState(false);
+    const [submitting, setSubmitting] = useState(false);  // React Hook
 
     const onFinish = student => {
         setSubmitting(true)
         console.log(JSON.stringify(student, null, 2))
-        // addNewStudent(student)
-        //     .then(() => {
-        //         console.log("student added")
-        //         onCLose();
-        //         successNotification(
-        //             "Student successfully added",
-        //             `${student.name} was added to the system`
-        //         )
-        //         fetchStudents();
-        //     }).catch(err => {
-        //     console.log(err);
-        //     err.response.json().then(res => {
-        //         console.log(res);
-        //         errorNotification(
-        //             "There was an issue",
-        //             `${res.message} [${res.status}] [${res.error}]`,
-        //             "bottomLeft"
-        //         )
-        //     });
-        // }).finally(() => {
-        //     setSubmitting(false);
-        // })
+        addNewStudent(student)
+            .then(() => {
+                console.log("Student added")
+                onClose();
+                fetchStudents();
+            }).catch(err => {
+                console.log(err)
+        }).finally(() => {
+            setSubmitting(false)
+        })
     };
 
     const onFinishFailed = errorInfo => {
