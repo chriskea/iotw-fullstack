@@ -4,7 +4,7 @@ import {
     Layout,
     Menu,
     Breadcrumb,
-    Table, Spin, Empty, Button
+    Table, Spin, Empty, Button, Badge
 } from 'antd';
 import {
     DesktopOutlined,
@@ -71,9 +71,32 @@ function App() {
         if (fetching) return <LoadingOutlined style={{fontSize: 24,}} spin />
         if (students.length <= 0) return <Empty />
 
-        return <Table
-            dataSource={students} columns={columns} rowKey={(student) => student.id} bordered title={()=> <Button type="primary" shape="round" icon={<PlusOutlined />} onClick={() => setShowDrawer(!showDrawer)}>Add Student</Button>} scroll={{y:500}} pagination={{pageSize: 50}}
-        />
+        return (
+            <Table
+                dataSource={students}
+                columns={columns}
+                rowKey={(student) => student.id}
+                scroll={{y: 500}}
+                pagination={{pageSize: 50}}
+                bordered
+                title={()=> {
+                    return <div>
+                        <Button
+                            type="primary"
+                            shape="round"
+                            icon={<PlusOutlined/>}
+                            onClick={() => setShowDrawer(!showDrawer)}
+                        >
+                            Add Student
+                        </Button>
+                        <Badge
+                            count={students.length}
+                            className="site-badge-count-4"
+                        />
+                    </div>
+                }}
+            />
+        )
     }
 
 
