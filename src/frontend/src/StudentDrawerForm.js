@@ -2,6 +2,7 @@ import {Drawer, Input, Col, Select, Form, Row, Button, Spin} from 'antd';
 import {LoadingOutlined} from "@ant-design/icons";
 import {useState} from 'react';
 import {addNewStudent} from "./client";
+import {successNotification, errorNotification} from "./Notification";
 
 const {Option} = Select;
 
@@ -18,6 +19,9 @@ export default function StudentDrawerForm({showDrawer, setShowDrawer, fetchStude
             .then(() => {
                 console.log("Student added")
                 onClose();
+                successNotification("Student success added",
+                                    `${student.name} was added to the system`
+                )
                 fetchStudents();
             }).catch(err => {
                 console.log(err)
