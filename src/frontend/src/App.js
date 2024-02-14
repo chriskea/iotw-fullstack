@@ -78,7 +78,10 @@ function App() {
 
 
     return <Layout style={{minHeight: '100vh'}}>
-        <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+        <StudentDrawerForm
+            showDrawer={showDrawer}
+            setShowDrawer={setShowDrawer}
+            fetchStudents={fetchStudents} />
         <Sider collapsible collapsed={collapsed}
                onCollapse={setCollapsed}>
             <div className="logo"/>
