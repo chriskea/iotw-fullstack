@@ -38,6 +38,13 @@
   color: #61dafb;
 }
 
+.site-badge-count-4 .ant-badge-count {
+  color: #999999;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
+  margin-left: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
