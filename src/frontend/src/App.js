@@ -110,7 +110,13 @@ function App() {
                 console.log(data);
                 setStudents(data);
                 setFetching(false)
-            })
+            }).catch(err => {
+                console.log(err.response)
+                err.response.json().then(res => {
+                    console.log(res);
+                    errorNotification("There was a bad thing", `${res.message} [${res.status}]`);
+                });
+        }).finally(() => setFetching(false))
 
     useEffect(() => {
         console.log("component is mounted");

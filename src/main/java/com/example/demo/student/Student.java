@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,6 +31,7 @@ public class Student {
 
     private Long id;
     private String name;
+
     private String email;
 
     @Enumerated(EnumType.STRING)
